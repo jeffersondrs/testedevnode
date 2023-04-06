@@ -6,26 +6,26 @@ dotenv.config({ path: "./config.env" });
 
 const PORT = process.env.PORT || 5000;
 
-// mongoose.set("useCreateIndex", true);
+mongoose.set("useCreateIndex", true);
 
-// async function start() {
-//   try {
-//     await mongoose.connect(
-//       process.env.DATABASE.replace("<PASSWORD>", process.env.DATABASE_PASSWORD),
-//       {
-//         useNewUrlParser: true,
-//         useUnifiedTopology: true,
-//         useFindAndModify: false,
-//       }
-//     );
-//     console.log("DB connection successful!");
-//   } catch (err) {
-//     console.log(err);
-//     process.exit(1);
-//   }
-// }
+async function start() {
+  try {
+    await mongoose.connect(
+      process.env.DATABASE.replace("<PASSWORD>", process.env.DATABASE_PASSWORD),
+      {
+        useNewUrlParser: true,
+        useUnifiedTopology: true,
+        useFindAndModify: false,
+      }
+    );
+    console.log("DB connection successful!");
+  } catch (err) {
+    console.log(err);
+    process.exit(1);
+  }
+}
 
-// start();
+start();
 
 const server = app.listen(PORT, "127.0.0.1", () => {
   console.log(`App running on port ${PORT}...`);
