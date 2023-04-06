@@ -1,8 +1,8 @@
 ## Rodando projeto
 
-# npm install
-# Após setar o arquivo .env com DATABASE_URL e DATABASE_PASSWORD do banco de dados mongoDb
-# Rodar o comando npm run dev para ambiente de desenvolvimento. Para ambiente de produção npm run build.
+### npm install
+### Após setar o arquivo .env com DATABASE_URL e DATABASE_PASSWORD do banco de dados mongoDb
+### Rodar o comando npm run dev para ambiente de desenvolvimento. Para ambiente de produção npm run build.
 
 ## Rotas
 
@@ -13,7 +13,7 @@ login : http://127.0.0.1:5000/auth/login
 	"email": "exemple@gmail.com",
 	"password": "123123123"
 }
-# signup : http://127.0.0.1:5000/auth/signup
+### signup : http://127.0.0.1:5000/auth/signup
 exemple
 {
 	"username": "exemple",
@@ -26,9 +26,9 @@ exemple
 
 Products
 
-# get all products : http://127.0.0.1:5000/api/product
+### get all products : http://127.0.0.1:5000/api/product
 
-# post product : http://127.0.0.1:5000/api/product
+### post product : http://127.0.0.1:5000/api/product
 exemple
 schema {
   "name": "Produto 1",
@@ -37,9 +37,9 @@ schema {
   "categories": ["642e371053be71a870c65d3a"]
 }
 
-# delete by id : http://127.0.0.1:5000/api/product/:idproduct
+### delete by id : http://127.0.0.1:5000/api/product/:idproduct
 
-# patch product : http://127.0.0.1:5000/api/product/:idproduct
+### patch product : http://127.0.0.1:5000/api/product/:idproduct
 exemple
 schema {
   "name": "Cafezinho",
@@ -48,7 +48,7 @@ schema {
   "categories": ["642e371053be71a870c65d3a"]
 }
 
-# get category : http://127.0.0.1:5000/category
+### get category : http://127.0.0.1:5000/category
 
 Utilizei apenas javascript puro, pois ainda não me sinto confortável em utilizar typescript no backend,
 porém ja venho utilizando no front end com Nextjs.
