@@ -1,4 +1,5 @@
 import Product from "../models/productModel.js";
+import mongoose from "mongoose";
 
 export const getProducts = async (req, res) => {
   try {
@@ -21,8 +22,11 @@ export const getProductById = async (req, res) => {
 export const createProduct = async (req, res) => {
   const { name, qty, price, categories } = req.body;
   try {
-    const product = await Product.create({ name, qty, price, categories });
-    res.json(product);
+    const categoryIds = categories.map((categoryId) => new mongoose.Types.ObjectId(categoryId));
+
+    const product = await Product.create({ name, qty, price, categories: categoryIds });
+  
+    res.status(201).json(product);
   } catch (error) {
     res.status(500).json({ message: error.message });
   }
@@ -36,13 +40,13 @@ export const updateProduct = async (req, res) => {
     });
 
     if (!produto) {
-      return res.status(404).send({ error: "Produto não encontrado" });
+      return res.status(404).send({ error: "Product not found" });
     }
 
     res.send(produto);
   } catch (error) {
     console.error(error);
-    res.status(500).send({ error: "Erro ao atualizar o produto" });
+    res.status(500).send({ error: "Error updating product" });
   }
 };
 

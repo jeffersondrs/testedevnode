@@ -32,15 +32,13 @@ export const login = catchAsync(async (req, res, next) => {
     return next(new AppError("Please provide email and password", 400));
   }
   const user = await User.findOne({ email }).select("+password");
-  const correctUser = await User.correctPassword(password, user.password);
+  const correctUser = await user.correctPassword(password, user.password);
 
   if (!user || !correctUser) {
     return next(new AppError("Incorrect email or password", 401));
   }
 
   const token = sign_token(user._id);
-
-  localStorage.setItem("token", token);
 
   res.status(200).json({
     status: "success",

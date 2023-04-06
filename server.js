@@ -2,20 +2,20 @@ import dotenv from "dotenv";
 import mongoose from "mongoose";
 import app from "./app.js";
 
-dotenv.config({ path: "./config.env" });
+dotenv.config({ path: ".env" });
 
 const PORT = process.env.PORT || 5000;
-
-mongoose.set("useCreateIndex", true);
 
 async function start() {
   try {
     await mongoose.connect(
-      process.env.DATABASE.replace("<PASSWORD>", process.env.DATABASE_PASSWORD),
+      process.env.DATABASE_URL.replace(
+        "<PASSWORD>",
+        process.env.DATABASE_PASSWORD
+      ),
       {
         useNewUrlParser: true,
         useUnifiedTopology: true,
-        useFindAndModify: false,
       }
     );
     console.log("DB connection successful!");
